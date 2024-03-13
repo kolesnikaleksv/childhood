@@ -2034,7 +2034,7 @@ footer {
 .underlined::after {
   content: "";
   display: block;
-  width: 15%;
+  width: 25%;
   height: 2px;
   background-color: #3f3689;
 }
