@@ -98,10 +98,10 @@
   </div>
   <div class="specialists" id="specialists">
     <div class="container">
-      <div class="title">Наша команда</div>
+      <div class="title"><?php the_field('our_team_title'); ?></div>
       <div class="row">
         <div class="col-lg-10 offset-lg-1">
-          <img class="specialists__img" src="<?php echo bloginfo('template_url');?>/assets/img/team.jpg" alt="наша команда">
+          <img class="specialists__img" src="<?php the_field('our_team_image');?>" alt="наша команда">
         </div>
       </div>
     </div>
@@ -197,7 +197,7 @@
       <div class="row">
         <div class="col-lg-10 offset-lg-1">
           <div class="toys__alert">
-            <span>Не нашли то, что искали?</span> Свяжитесь с нами - и мы с радостью создадим любую игрушку по вашему желанию. Вы можете выбрать все: размер, материал, формы...!
+             <?php the_field('educational_toys_description'); ?>
           </div>
         </div>
       </div>
@@ -206,35 +206,47 @@
 
   <div class="aboutus" id="aboutus">
     <div class="container">
-      <h1 class="title">Наша история</h1>
+      <h1 class="title"><?php the_field('our_history_title'); ?></h1>
       <div class="row">
         <div class="col-lg-6">
           <div class="subtitle">
-            Все начиналось с желания
+            <?php the_field('our_history_subtitle'); ?>
           </div>
           <div class="aboutus__text">
-            Желания сделать как можно больше детей счастливыми. Именно с этой идеи все и зарождалось.
-            <br><br>
-            Первые игрушки, сделанные вручную были классическими плюшевыми медведями, которые разошлись настолько быстро, что нас завалили заказами на несколько месяцев вперед. Именно в то время мы поняли, что идем правильным путем, вкладывая все силы и эмоции в наши игрушки.
+            <?php the_field('our_history_description'); ?>
           </div>
         </div>
         <div class="col-lg-6">
-          <img class="aboutus__img" src="<?php echo bloginfo('template_url');?>/assets/img/about_1.jpg" alt="мир детства">
+          <?php 
+            $image = get_field('our_history_image');
+              if(!empty($image)):?>
+              <img 
+                src="<?php echo $image['url']; ?>" 
+                alt="<?php echo $image['alt']; ?>"
+                class="aboutus__img">
+              <?php endif;
+            ?>
         </div>
       </div>
 
       <div class="row">
         <div class="col-lg-6">
-          <img class="aboutus__img" src="<?php echo bloginfo('template_url');?>/assets/img/about_2.jpg" alt="мир детства">
+          <?php
+            $image = get_field('kind_image');
+            if(!empty($image)): ?>
+            <img 
+              src="<?php echo $image['url']; ?>" 
+              alt="<?php echo $image['alt']; ?>"
+              class="aboutus__img">
+              <?php endif;
+          ?>
         </div>
         <div class="col-lg-6">
           <div class="subtitle">
-            Главное - качество
+            <?php the_field('kind_title'); ?>
           </div>
           <div class="aboutus__text">
-            Мы делали их вручную, из лучших материалов и не жалея времени. Но мы росли и наш ассортимент расширился и фабричными изделиями.
-            <br><br>
-            Выбирая нас, вы можете быть уверены, что мы всегда следим за качеством закупок и никогда не предоставим вам опасный или некачественный товар.
+           <?php the_field('kind_description'); ?>
           </div>
         </div>
       </div>
@@ -242,30 +254,36 @@
       <div class="row">
         <div class="col-lg-6">
           <div class="subtitle">
-            Современные технологии
+            <?php the_field('techno_title'); ?>
           </div>
           <div class="aboutus__text">
-            И даже спустя столько лет мы продолжаем создавать игрушки вручную. Как самые простые, так и те, что идут в ногу со временем. Добавляя электроники и оживляя лучших друзей ребятишек, мы всегда следим за качеством и безопасностью. Каждая отдельная игрушка проходит индивидуальный контроль по всем необходимым стандартам.
-            <br><br>
-            Ведь счастливое лицо ребенка - это лучшая награда для нас!
+          <?php the_field('techno_description'); ?>
           </div>
         </div>
         <div class="col-lg-6">
-          <img class="aboutus__img" src="<?php echo bloginfo('template_url');?>/assets/img/about_3.jpg" alt="мир детства">
+          <?php
+            $image = get_field('techno_image');
+            if(!empty($image)): ?>
+            <img 
+              src="<?php echo $image['url']; ?>" 
+              alt="<?php echo $image['alt']; ?>"
+              class="aboutus__img">
+              <?php endif;
+              ?>
         </div>
       </div>
     </div>
   </div>
 
   <div class="contacts" id="contacts">
-    <h1 class="title">Где нас найти</h1>
+    <h1 class="title">Де нас знайти</h1>
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
           <div class="contacts__descr underlined">
-            Мы находимся в Москве, метро "Парк победы", в деловом центре "Парк победы", второй этаж
+            Ми знаходимось у Харкові, метро "Холодна гора", у діловому центрі "ПТН ПНХ", другий поверх
             <br> <br>
-            по адресу ул. Василисы Кожиной, 1
+            за адрессою вул. Полтавський шлях 145
           </div>
         </div>
         <div class="col-lg-6">
@@ -275,7 +293,7 @@
       </div>
       <div class="row">
         <div class="col-md-6">
-          <div class="title contacts__minititle">Свяжитесь с нами</div>
+          <div class="title contacts__minititle">Зв'яжіться з нами</div>
           <div class="contacts__info">
             <div class="contacts__phones">
               <div class="contacts__phoneblock">
@@ -325,7 +343,7 @@
                       </linearGradient>
                     </defs>
                   </svg>
-                  <a href="tel:+797867834347">+797867834347</a>
+                  <a href="tel:<?php the_field('phoneks'); ?>"><?php the_field('phoneks'); ?></a>
                 </div>
               </div>
               <div class="contacts__phoneblock">
@@ -375,18 +393,18 @@
                       </linearGradient>
                     </defs>
                   </svg>
-                  <a href="tel:+797867834358">+797867834358</a>
+                  <a href="tel:<?php the_field('phone-vd'); ?>"><?php the_field('phone-vd'); ?></a>
                 </div>
               </div>
             </div>
             <div class="contacts__mail">
-              Или напишите нам на почту
-              <a href="mailto:mirdetstva@gmail.com">mirdetstva@gmail.com</a>
+              Або напишіть нам на пошту
+              <a href="<?php the_field('email', 2); ?>"><?php the_field('email', 2); ?></a>
             </div>
           </div>
         </div>
         <div class="col-md-6">
-          <div class="title contacts__minititle">Оставьте ваш отзыв</div>
+          <div class="title contacts__minititle">Залиште свій відгук</div>
           <form action="#" class="contacts__feed">
             <label for="feedname">
               Ваше имя <span>*</span>

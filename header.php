@@ -17,7 +17,6 @@
   <link rel="apple-touch-icon" sizes="120x120" href="<?php echo bloginfo('template_url');?>/assets/img/favicons/apple-touch-icon-120x120.png">
   <link rel="apple-touch-icon" sizes="144x144" href="<?php echo bloginfo('template_url');?>/assets/img/favicons/apple-touch-icon-144x144.png">
   <link rel="apple-touch-icon" sizes="180x180" href="<?php echo bloginfo('template_url');?>/assets/img/favicons/apple-touch-icon-180x180.png">
-  <!-- <link rel="stylesheet" href="./styles/main.min.css"> -->
 
   <?php
     wp_head();
@@ -38,19 +37,22 @@
           <div class="header__contacts">
             <div class="header__contacts-item">
               <img src="<?php echo bloginfo('template_url');?>/assets/img/icons/svg/email.svg" alt="почта" class="header__contacts-logo">
-              <a href="mailto:mirdetstva@gmail.com" class="header__contacts-mail"><?php the_field('email', 2); ?></a>
+              <a href="<?php the_field('email', 2); ?>" class="header__contacts-mail"><?php the_field('email', 2); ?></a>
             </div>
             <div class="header__contacts-item">
               <img src="<?php echo bloginfo('template_url');?>/assets/img/icons/svg/phone.svg" alt="телефон" class="header__contacts-logo">
               <div class="header__contacts-tel">
-                <a href="tel:+797867834347"><?php the_field('phoneks'); ?></a>
-                <a href="tel:+797867834358"><?php the_field('phone-vd'); ?></a>
+                <a href="tel:<?php the_field('phoneks'); ?>"><?php the_field('phoneks'); ?></a>
+                <a href="tel:<?php the_field('phone-vd'); ?>"><?php the_field('phone-vd'); ?></a>
               </div>
             </div>
             <div class="header__contacts-item">
               <img src="<?php echo bloginfo('template_url'); ?>/assets/img/icons/svg/pointer.svg" alt="указатель" class="header__contacts-logo">
-              <address>ул. Василисы Кожиной, 1<br>
-                Москва, Россия, 121096</address>
+              <address>
+                <?php the_field('address_str'); ?>
+                <br>
+                <?php the_field('address_city'); ?>
+              </address>
             </div>
           </div>
         </div>
