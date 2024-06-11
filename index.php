@@ -117,7 +117,13 @@
 
           foreach($posts as $post) {
             setup_postdata( $post ); ?>
-              <div class="toys__item" style="background-image: url(<?php the_field('toy_card_image');?>)">
+              <div class="toys__item" style="background-image: url(<?php 
+                if(has_post_thumbnail()) {
+                 the_post_thumbnail_url();
+                } else {
+                  echo get_template_directory_uri() . '/assets/img/not-found.webp';
+                }
+              ?>)">
                 <div class="toys__item-info">
                   <div class="toys__item-title"><?php the_title(); ?></div>
                   <div class="toys__item-descr">
