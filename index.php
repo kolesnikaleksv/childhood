@@ -374,12 +374,12 @@
           <div class="title contacts__minititle">Залиште свій відгук</div>
           <form action="#" class="contacts__feed">
             <label for="feedname">
-              Ваше имя <span>*</span>
+              Ваше ім'я <span>*</span>
             </label>
             <input required type="text" id="feedname" name="feedname">
 
             <label for="feedtext">
-              Ваш отзыв <span>*</span>
+              Ваш відгук <span>*</span>
             </label>
             <textarea required name="feedtext" id="feedtext"></textarea>
             <button class="minibutton">Отправить</button>
@@ -703,32 +703,30 @@
           <div class="feedslider glide">
             <div class="glide__track" data-glide-el="track">
               <ul class="glide__slides">
-                <li class="glide__slide">
-                  <div class="feedslider__title">
-                    Иванов Игорь
-                  </div>
-                  <div class="feedslider__text">
-                    Спасибо огромное за вежливость и терпение. Обратился к вам только с идеей для подарка, а вы развили её до полноценного проекта! Так что мой сын теперь круглые сутки играет с железной дорогой, построенной по его планам)
-                    <br><br>
-                    Отдельное спасибо менеджеру Маргарите за терпение и стойкость!
-                  </div>
-                </li>
-                <li class="glide__slide">
-                  <div class="feedslider__title">
-                    Черкессов Алексей Дмитриевич
-                  </div>
-                  <div class="feedslider__text">
-                    Заказывал у ребят целую партию игрушек для детского сада. Новый год прошел на ура! Теперь все детишки счастливы и не расстаются со своими подарками, а самые хитрые спрашивают когда следующие праздники)
-                  </div>
-                </li>
-                <li class="glide__slide">
-                  <div class="feedslider__title">
-                    Анна Сергеевна
-                  </div>
-                  <div class="feedslider__text">
-                    Решила к дню рождения своей малышки заказать подарки здесь. И ни сколько не жалею! Мишка именно такой, как я хотела, прямо как у меня в детстве: мягкий, приятный на ощупь и оочень милый. Сразу видно, что ручная работа.
-                  </div>
-                </li>
+                <?php
+                  $posts = get_posts([
+                    'numberposts' => -1,
+                    'category_name' => 'review',
+                    'orderby'     => 'date',
+                    'order'       => 'ASC',
+                    'post_type'   => 'post',
+                    'suppress_filters' => true,
+                  ]);
+
+                  foreach($posts as $post) {
+                    setup_postdata( $post ); ?>
+                      <li class="glide__slide">
+                        <div class="feedslider__title">
+                          <?php the_title(); ?>
+                        </div>
+                        <div class="feedslider__text">
+                          <?php the_field('review_description') ?>
+                        </div>
+                      </li>
+                    <?php
+                  };
+                  wp_reset_postdata(); // reset $post
+                ?>
               </ul>
             </div>
 
