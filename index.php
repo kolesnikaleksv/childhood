@@ -103,7 +103,7 @@
 
   <div class="toys" id="toys">
     <div class="container">
-      <h2 class="subtitle">Мягкие игрушки</h2>
+      <h2 class="subtitle">М'які іграшки</h2>
       <div class="toys__wrapper">
         <?php 
           $posts = get_posts( [
@@ -139,7 +139,7 @@
       </div>
 
 
-      <h2 class="subtitle">Развивающие игрушки</h2>
+      <h2 class="subtitle">Развиваючі іграшки</h2>
       <div class="toys__wrapper">
         <?php 
           $posts = get_posts( [
@@ -386,7 +386,7 @@
       </div>
       <div class="row mt70">
         <div class="col-lg-8 offset-lg-2">
-          <div class="title">отзывы</div>
+          <div class="title">відгуки</div>
           <div class="feedslider glide">
             <div class="glide__track" data-glide-el="track">
               <ul class="glide__slides">

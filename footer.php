@@ -1,6 +1,6 @@
 <div class="question">
             <div class="question__text">
-                Есть вопросы? Напишите нам!
+                Є питання ? Напишіть нам!
             </div>
             <div id="reply" class="minibutton">Написать</div>
             <div class="question__close">&times</div>
@@ -9,7 +9,7 @@
         <div class="reply">
             <div class="reply__body">
                 <div class="reply__title">
-                    Оставьте ваш вопрос здесь
+                    Залиште ваше питання тут
                 </div>
                 <div>
                   <?php echo do_shortcode('[contact-form-7 id="4dbcbf1" title="Popup form"]'); ?>
@@ -67,7 +67,7 @@
             </div>
             <div class="row">
               <div class="col-12">
-                <a href="#" class="footer__policy">Политика конфиденциальности</a>
+                <a href="#" class="footer__policy">Політика котфіденційності</a>
               </div>
             </div>
           </div>
