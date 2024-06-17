@@ -42,16 +42,16 @@
             <div class="header__contacts-item">
               <img src="<?php echo bloginfo('template_url');?>/assets/img/icons/svg/phone.svg" alt="телефон" class="header__contacts-logo">
               <div class="header__contacts-tel">
-                <a href="tel:<?php the_field('phoneks'); ?>"><?php the_field('phoneks'); ?></a>
-                <a href="tel:<?php the_field('phone-vd'); ?>"><?php the_field('phone-vd'); ?></a>
+                <a href="tel:<?php the_field('phoneks'); ?>"><?php the_field('phoneks', 2); ?></a>
+                <a href="tel:<?php the_field('phone-vd'); ?>"><?php the_field('phone-vd', 2); ?></a>
               </div>
             </div>
             <div class="header__contacts-item">
               <img src="<?php echo bloginfo('template_url'); ?>/assets/img/icons/svg/pointer.svg" alt="указатель" class="header__contacts-logo">
               <address>
-                <?php the_field('address_str'); ?>
+                <?php the_field('address_str', 2); ?>
                 <br>
-                <?php the_field('address_city'); ?>
+                <?php the_field('address_city', 2); ?>
               </address>
             </div>
           </div>
