@@ -1,20 +1,26 @@
 <?php
-/*
-  Template Name: toys
-*/
-?>
-
-<?php
   get_header();
 ?>
 
-  <div class="toys">
-    <div class="container">
-      <h2 class="subtitle">М'які іграшки</h2>
+	<main id="primary" class="site-main">
+
+		<?php
+		while ( have_posts() ) :
+			the_post();
+
+			get_template_part( 'template-parts/content', get_post_type() );
+
+		endwhile; // End of the loop.
+		?>
+
+	</main><!-- #main -->
+
+  <div class="container toys">
+      <h2 class="subtitle">Можливо вам сподобається</h2>
       <div class="toys__wrapper">
         <?php 
           $posts = get_posts( [
-            'numberposts' => -1,
+            'numberposts' => 3,
             'category_name' => 'soft_toys',
             'orderby'     => 'date',
             'order'       => 'ASC',
@@ -44,36 +50,6 @@
           wp_reset_postdata(); // reset $post
         ?>
       </div>
-
-
-      <h2 class="subtitle">Развиваючі іграшки</h2>
-      <div class="toys__wrapper">
-        <?php 
-          $posts = get_posts( [
-            'numberposts' => -1,
-            'category_name' => 'education_toys',
-            'orderby'     => 'date',
-            'order'       => 'ASC',
-            'post_type'   => 'post',
-            'suppress_filters' => true,
-          ] );
-
-          foreach($posts as $post) {
-            setup_postdata( $post ); ?>
-              <div class="toys__item" style="background-image: url(<?php the_field('toy_card_image');?>)">
-                <div class="toys__item-info">
-                  <div class="toys__item-title"><?php the_title(); ?></div>
-                  <div class="toys__item-descr">
-                    <?php the_field('toy_card_description'); ?>
-                  </div>
-                  <a href="<?php echo get_permalink(); ?>" class="minibutton toys__trigger">Детальніше</a>
-                </div>
-              </div>
-            <?php
-          }
-          wp_reset_postdata(); // reset $post
-        ?>
-      </div>
       <div class="row">
         <div class="col-lg-10 offset-lg-1">
           <div class="toys__alert">
@@ -82,8 +58,6 @@
         </div>
       </div>
     </div>
-  </div>
 
-<?php 
-  get_footer();
-?>
+<?php
+get_footer();

@@ -22,6 +22,10 @@
       if($item->current) {
         $atts['class'] .= ' header__nav-item-active';
       }
+     
+      if( $item->ID === 166 && ( in_category( 'soft_toys' ) || in_category( 'education_toys' ))){
+        $atts['class'] .= ' header__nav-item-active';
+      }
     }
 
     return $atts;
